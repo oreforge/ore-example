@@ -1,0 +1,11 @@
+config:
+  bind: 0.0.0.0:25565
+  onlineMode: true
+  servers:
+    lobby: lobby:25565
+    survival: survival:25565
+  try:
+    - lobby
+  forwarding:
+    mode: velocity
+    velocitySecret: ore-testnet-forwarding-secret
