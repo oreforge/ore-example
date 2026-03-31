@@ -19,5 +19,18 @@ servers:
   - name: proxy
     dir: ./servers/proxy
     software: gate:0.62.4
-    port: 25565
+    ports:
+      - "25565:25565"
     memory: 512M
+
+services:
+  - name: database
+    image: postgres:16
+    ports:
+      - "5432:5432"
+    env:
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: playground
+    volumes:
+      - name: data
+        target: /var/lib/postgresql/data
