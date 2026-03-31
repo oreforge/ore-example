@@ -6,6 +6,10 @@ config:
     survival: survival:25565
   try:
     - lobby
+  status:
+    motd: |
+      §aOreForge Example Network
+      §7Powered by Gate
   forwarding:
     mode: velocity
     velocitySecret: ore-testnet-forwarding-secret
