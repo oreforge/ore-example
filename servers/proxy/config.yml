@@ -8,7 +8,7 @@ config:
     - lobby
   status:
     motd: |
-      §aOreForge Example Network v3
+      §aOreForge Example Network v4
       §7Powered by Gate
   forwarding:
     mode: velocity
