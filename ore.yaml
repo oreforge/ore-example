@@ -1,5 +1,10 @@
 network: example
 
+gitops:
+  poll:
+    enabled: true
+    interval: 1m
+
 servers:
   - name: lobby
     dir: ./servers/lobby
@@ -30,7 +35,7 @@ services:
       - "5432:5432"
     env:
       POSTGRES_PASSWORD: secret
-      POSTGRES_DB: playground
+      POSTGRES_DB: example
     volumes:
       - name: data
         target: /var/lib/postgresql/data
