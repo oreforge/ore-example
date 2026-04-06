@@ -12,13 +12,13 @@ gitops:
 servers:
   - name: lobby
     dir: ./servers/lobby
-    software: paper:26.1.1
+    software: paper:1.21.11
     memory: 1G
     jvmFlags: [-Xms512M, -Xmx1G]
 
   - name: survival
     dir: ./servers/survival
-    software: paper:26.1.1
+    software: paper:1.21.11
     memory: 2G
     jvmFlags: [-Xms1G, -Xmx2G]
     volumes:
@@ -27,7 +27,7 @@ servers:
 
   - name: proxy
     dir: ./servers/proxy
-    software: gate:0.64.0
+    software: gate:0.62.4
     ports:
       - "25565:25565"
     memory: 512M
