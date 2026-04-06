@@ -6,7 +6,7 @@ gitops:
     force: true
     no_cache: true
   poll:
-    enabled: false
+    enabled: true
     interval: 1m
 
 servers:
