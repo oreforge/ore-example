@@ -1,6 +1,8 @@
 network: example
 
 gitops:
+  webhook:
+    enabled: true
   poll:
     enabled: true
     interval: 1m
