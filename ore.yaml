@@ -3,6 +3,8 @@ network: example
 gitops:
   webhook:
     enabled: true
+    force: true
+    no_cache: true
   poll:
     enabled: true
     interval: 1m
