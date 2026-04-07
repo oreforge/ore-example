@@ -4,7 +4,7 @@ gitops:
   webhook:
     enabled: true
     force: true
-    no_cache: true
+    noCache: true
   poll:
     enabled: true
     interval: 1m
@@ -12,18 +12,19 @@ gitops:
 servers:
   - name: lobby
     dir: ./servers/lobby
-    software: paper:26.1.1
+    software: paper:1.21.11
     memory: 1G
-    jvmFlags: [-Xms512M, -Xmx1G]
 
   - name: survival
     dir: ./servers/survival
-    software: paper:26.1.1
+    software: paper:1.21.11
     memory: 2G
-    jvmFlags: [-Xms1G, -Xmx2G]
     volumes:
       - name: world
         target: /data/world
+    healthcheck:
+      retries: 60
+      startPeriod: 10s
 
   - name: proxy
     dir: ./servers/proxy
@@ -31,6 +32,7 @@ servers:
     ports:
       - "25565:25565"
     memory: 512M
+    healthcheck: "nc -z localhost 25565"
 
 services:
   - name: database
@@ -43,3 +45,9 @@ services:
     volumes:
       - name: data
         target: /var/lib/postgresql/data
+    healthcheck:
+      cmd: "pg_isready -U postgres"
+      interval: 10s
+      timeout: 5s
+      startPeriod: 30s
+      retries: 5
