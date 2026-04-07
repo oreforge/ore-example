@@ -12,12 +12,12 @@ gitops:
 servers:
   - name: lobby
     dir: ./servers/lobby
-    software: paper:1.21.11
+    software: paper:26.1.1
     memory: 1G
 
   - name: survival
     dir: ./servers/survival
-    software: paper:1.21.11
+    software: paper:26.1.1
     memory: 2G
     volumes:
       - name: world
