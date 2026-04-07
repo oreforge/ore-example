@@ -14,6 +14,9 @@ servers:
     dir: ./servers/lobby
     software: paper:26.1.1
     memory: 1G
+    depends_on:
+      - name: database
+        condition: healthy
 
   - name: survival
     dir: ./servers/survival
@@ -25,6 +28,9 @@ servers:
     healthcheck:
       retries: 60
       startPeriod: 10s
+    depends_on:
+      - name: database
+        condition: healthy
 
   - name: proxy
     dir: ./servers/proxy
@@ -33,6 +39,10 @@ servers:
       - "25565:25565"
     memory: 512M
     healthcheck: "nc -z localhost 25565"
+    depends_on:
+      - name: lobby
+      - name: survival
+        condition: healthy
 
 services:
   - name: database
