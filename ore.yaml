@@ -1,4 +1,5 @@
 network: example
+icon: icon.jpeg
 
 gitops:
   webhook:
